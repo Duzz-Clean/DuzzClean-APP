@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
@@ -37,7 +36,7 @@ export default function duzzclean({ navigation }) {
       }),
       Animated.timing(opacity, {
         toValue: 1,
-        duration: 300,
+        duration: 300,        
         useNativeDriver: false
 
       })
@@ -49,12 +48,12 @@ export default function duzzclean({ navigation }) {
 
     Animated.parallel([
       Animated.timing(logo.x, {
-        toValue: 125,
+        toValue: 120,
         duration: 100,
         useNativeDriver: false
       }),
       Animated.timing(logo.y, {
-        toValue: 80,
+        toValue: 106,
         duration: 100,
         useNativeDriver: false
       })
@@ -109,21 +108,22 @@ export default function duzzclean({ navigation }) {
           autoCorrect={false}
           onChangeText={() => { }}>
         </TextInput>
-
-
-        <View style={styles.input }>
           <TouchableOpacity
             style={styles.btnSubmit}
             onPress={() =>
               navigation.navigate('Motorista')}>
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
-
-        </View>
-        <TouchableOpacity style={styles.btnRegister}>
-          <Text style={styles.registerText}>Criar Conta gratuita</Text>
+        <TouchableOpacity style={styles.btnRegister}
+        onPress={() =>
+          navigation.navigate('CadastroMoto')}>        
+          <Text style={styles.registerText}>Criar Conta motorista</Text>
         </TouchableOpacity>
-
+        <TouchableOpacity style={styles.btnRegister}
+        onPress={() =>
+          navigation.navigate('CadastroCli')}>        
+          <Text style={styles.registerText}>Criar Conta cliente</Text>
+        </TouchableOpacity>
       </Animated.View>
     </KeyboardAvoidingView>
   );

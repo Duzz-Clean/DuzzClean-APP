@@ -7,7 +7,7 @@ export default function Home({ navigation }) {
   return (
     <View>
       <Image source={require('../components/assets/teamplate.png')}
-        style={styles.imgicon} />
+        style={styles.imgteamplate} />
 
 <TouchableOpacity
         style={styles.buttonhome}

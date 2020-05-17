@@ -97,8 +97,6 @@ export default function duzzclean({ navigation }) {
             ]
           }
         ]}>
-
-
         <View style={styles.input}>
           <TouchableOpacity
             style={styles.btnSubmit}
