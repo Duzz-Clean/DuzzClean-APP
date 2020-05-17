@@ -1,6 +1,7 @@
 /** 
  @__author__ = DiegoEmanuel/diegoabox@gmail.com/https://github.com/DiegoEmanuel
 */
+
 import React, { Component } from 'react';
 import { View, Text, Button, ImageBackground, Image,TouchableOpacity } from 'react-native';
 import styles from '../styles/index';

@@ -1,6 +1,7 @@
 /** 
  @__author__ = DiegoEmanuel/diegoabox@gmail.com/https://github.com/DiegoEmanuel
 */
+
 import React,{useEffect,useState} from 'react';
 import { StyleSheet,
   Text,

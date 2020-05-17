@@ -1,6 +1,7 @@
 /** 
  @__author__ = DiegoEmanuel/diegoabox@gmail.com/https://github.com/DiegoEmanuel
 */
+
 import 'react-native-gesture-handler';
 
 import React from 'react';
