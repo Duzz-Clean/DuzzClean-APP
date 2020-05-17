@@ -1,5 +1,5 @@
 /** 
- @__author__ = DiegoEmanuel/diegoabox@gmail.com/https://github.com/DiegoEmanuel
+ @__author__ DiegoEmanuel/diegoabox@gmail.com/
 
 */
 
