@@ -1,3 +1,4 @@
+// author: https://github.com/DiegoEmanuel
 import React,{useEffect,useState} from 'react';
 import { StyleSheet,
   Text,
@@ -16,10 +17,6 @@ import styles from '../styles/index';
 
 export default function duzzclean({navigation}) {
   
-  
-  clicou = ()=>{
-    Alert.alert("Sucesso","Voce está conectado!")
-  }
 
   const[offset]=useState(new Animated.ValueXY({x: 0,y:95}))
   const[opacity]=useState(new Animated.Value(0))
@@ -35,13 +32,13 @@ export default function duzzclean({navigation}) {
       toValue:0,
       speed: 3,
       bounciness:20,
-      useNativeDriver: false 
+      useNativeDriver: true 
 
         }),
     Animated.timing(opacity,{
       toValue:1,
       duration:300,
-      useNativeDriver: false 
+      useNativeDriver: true 
 
     })
 
@@ -54,12 +51,12 @@ export default function duzzclean({navigation}) {
       Animated.timing(logo.x,{
         toValue:125,
         duration:100,
-        useNativeDriver: false 
+        useNativeDriver:true 
       }),
   Animated.timing(logo.y,{
         toValue:80,
         duration:100,
-        useNativeDriver: false 
+        useNativeDriver: true 
       })
       
     ]).start();
@@ -98,33 +95,30 @@ export default function duzzclean({navigation}) {
                       {translateY:offset.y}
                     ]
                   }
-                ]}>
-                    
-
-      <View>
-        <Text style={styles.title}>
-          Contabilize a limpeza do seu veículo
-        </Text>
-        <Button
-          title="Fiz uma limpeza"
-          color="#00CED1"
-          onPress={() => Alert.alert('Atualizaremos seu rating')}
+                ]}>                    
+          
+      <View style={styles.input}>
+          <Button 
+          title="Verificar Limpeza"  
+          color="#4682B4"          
+          onPress={() => Alert.alert("Checar avaliação")}
         />
-
-      </View>       
-
-      <View>
-        <Text style={styles.title}>
-          Acompanhe seu rating
-        </Text>
+        </View>                
+        <View style={styles.input}>
         <Button
-          title="Meu feedbeck"
-          color="#00CED1"
+          title="Avaliar com QR Code"       
+          color="#4682B4"     
           onPress={() => Alert.alert('Apresentando o seu feedbeck')}
         />
-      </View>
-                  
-                  </Animated.View>
+        </View>  
+        <View style={styles.input}>
+        <Button
+          title="Solicitar limpeza"  
+          color="#4682B4"        
+          onPress={() => Alert.alert('Aguardando resposta do motorista')}
+        />     
+         </View>                     
+                  </Animated.View>                   
         </KeyboardAvoidingView>
     );
 }

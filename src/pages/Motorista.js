@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
@@ -6,16 +5,18 @@ import {
   View,
   KeyboardAvoidingView,
   TextInput,
-  Button,
   TouchableOpacity,
   Image,
   Animated,
+  Button,
   Keyboard,
   Alert
+
 } from 'react-native';
 import styles from '../styles/index';
 
 export default function duzzclean({ navigation }) {
+
 
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }))
@@ -96,33 +97,23 @@ export default function duzzclean({ navigation }) {
             ]
           }
         ]}>
-        <TextInput
-          style={styles.inputlogin}
-          placeholder="Digite seu email"
-          autoCorrect={false}
-          onChangeText={() => { }}>
-        </TextInput>
-        <TextInput
-          style={styles.inputlogin}
-          secureTextEntry={true}
-          placeholder="Digite sua senha"
-          autoCorrect={false}
-          onChangeText={() => { }}>
-        </TextInput>
 
 
-        <View style={styles.input }>
+        <View style={styles.input}>
           <TouchableOpacity
             style={styles.btnSubmit}
-            onPress={() =>
-              navigation.navigate('Motorista')}>
-            <Text style={styles.buttonText}>Entrar</Text>
+            onPress={() => Alert.alert("Limpo!", "Atualizaremos seu rating")}>
+            <Text style={styles.buttonText}>Botão motorista</Text>
           </TouchableOpacity>
-
         </View>
-        <TouchableOpacity style={styles.btnRegister}>
-          <Text style={styles.registerText}>Criar Conta gratuita</Text>
-        </TouchableOpacity>
+          <View style={styles.input}>
+            <TouchableOpacity
+              style={styles.btnSubmit}
+              onPress={() => Alert.alert("Gerando", "Atualizaremos seu rating")}>
+              <Text style={styles.buttonText}>Veja como esta seu rating</Text>
+            </TouchableOpacity>
+          </View>
+          
 
       </Animated.View>
     </KeyboardAvoidingView>
