@@ -1,6 +1,6 @@
-/**
- * @format
- */
+/** 
+ @__author__ = DiegoEmanuel/diegoabox@gmail.com/https://github.com/DiegoEmanuel
+*/
 
 import {AppRegistry} from 'react-native';
 import App from './App';
