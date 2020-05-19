@@ -43,7 +43,14 @@ export default function Home({ navigation }) {
         </TextInput>
         <TextInput
           style={styles.inputlogin}
-          placeholder="Digite seu placa do seu carro"
+          placeholder="email"
+          autoCorrect={false}
+          onChangeText={() => { }}>
+        </TextInput>
+        <TextInput
+          style={styles.inputlogin}
+          secureTextEntry={true}
+          placeholder="Sua cidade"
           autoCorrect={false}
           onChangeText={() => { }}>
         </TextInput>
@@ -57,14 +64,13 @@ export default function Home({ navigation }) {
         <TouchableOpacity
             style={styles.btnSubmit}
             onPress={() =>
-              navigation.navigate('Motorista')}>
+              navigation.navigate('Login')}>
             <Text style={styles.buttonText}>Registrar-se</Text>
           </TouchableOpacity>
       </TouchableOpacity>
     
       </View>
-      </KeyboardAvoidingView>
-    
+      </KeyboardAvoidingView>    
   );
 }
 

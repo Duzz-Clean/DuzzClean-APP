@@ -37,20 +37,27 @@ export default function Home({ navigation }) {
         </TextInput>
         <TextInput
           style={styles.inputlogin}
-          placeholder="Digite seu Telefone"
+          placeholder="Informe seu Telefone"
           autoCorrect={false}
           onChangeText={() => { }}>
         </TextInput>
         <TextInput
           style={styles.inputlogin}
-          placeholder="Digite seu placa do seu carro"
+          placeholder="informe a placa do seu carro"
           autoCorrect={false}
           onChangeText={() => { }}>
         </TextInput>
         <TextInput
           style={styles.inputlogin}
           secureTextEntry={true}
-          placeholder="Digite sua senha"
+          placeholder="Escolha sua senha"
+          autoCorrect={false}
+          onChangeText={() => { }}>
+        </TextInput>
+        <TextInput
+          style={styles.inputlogin}
+          secureTextEntry={true}
+          placeholder="Sua cidade"
           autoCorrect={false}
           onChangeText={() => { }}>
         </TextInput>
@@ -60,6 +67,7 @@ export default function Home({ navigation }) {
               navigation.navigate('Motorista')}>
             <Text style={styles.buttonText}>Registrar-se</Text>
           </TouchableOpacity>
+          
       </TouchableOpacity>
     
       </View>

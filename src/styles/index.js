@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   inputlogin: {
     backgroundColor: '#FFF',
     width: '100%',
-    marginBottom: 0,
+    marginBottom: 4,
     fontSize: 15,
     padding: 7,
   },

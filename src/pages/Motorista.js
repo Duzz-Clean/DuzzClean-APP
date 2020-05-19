@@ -105,8 +105,9 @@ export default function duzzclean({ navigation }) {
         <View style={styles.input}>
           <TouchableOpacity
             style={styles.btnSubmit}
-            onPress={() => Alert.alert("Limpo!", "Atualizaremos seu rating")}>
-            <Text style={styles.buttonText}>Botão motorista</Text>
+            onPress={() =>
+              navigation.navigate('ultimaslimpezas')}>
+            <Text style={styles.buttonText}>Ultimas limpezas</Text>
           </TouchableOpacity>
         </View>
           <View style={styles.input}>

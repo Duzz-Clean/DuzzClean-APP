@@ -1,9 +1,7 @@
 /** 
  @__author__ DiegoEmanuel/diegoabox@gmail.com/
 */
-
 import 'react-native-gesture-handler';
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -15,6 +13,9 @@ import Motorista from './src/pages/Motorista';
 import Cliente from './src/pages/Cliente'
 import CadastroMoto from './src/pages/CadastroMoto';
 import CadastroCli from './src/pages/CadastroCli';
+import ultimaslimpezas from './src/pages/ultimaslimpezas';
+
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -25,6 +26,7 @@ export default function App() {
         <AppStack.Screen name="Cliente" component={Cliente} />
         <AppStack.Screen name="CadastroMoto" component={CadastroMoto} />
         <AppStack.Screen name="CadastroCli" component={CadastroCli} />
+        <AppStack.Screen name="ultimaslimpezas" component={ultimaslimpezas} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
