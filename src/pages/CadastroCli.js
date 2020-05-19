@@ -18,7 +18,16 @@ import {
   Alert
 } from 'react-native';
 import styles from '../styles/index';
-export default function Home({ navigation }) {
+export default function CadastroCli({ navigation }) {
+
+  
+  const [myName, setMyName] = useState('');
+  const [myFone, setMyFone] = useState('');
+  const [myEmail, setMyEmail] = useState('');
+  const [myCity, setMyCity] = useState('');
+  const [myPassword, setMyPassword] = useState('');
+  
+
   return (
     
     <KeyboardAvoidingView style={styles.backgroundcad}>
@@ -29,37 +38,66 @@ export default function Home({ navigation }) {
 <TouchableOpacity >
       
         <Text style={styles.textcad}>Cadastro Cliente</Text>
+        
+
+
+
         <TextInput
           style={styles.inputlogin}
           placeholder="Digite seu Nome"
-          autoCorrect={false}
-          onChangeText={() => { }}>
+          value={myName}
+          autoCorrect={false}          
+          onChangeText={Name => {
+            setMyName(Name);
+          }}
+          >    
+
         </TextInput>
         <TextInput
           style={styles.inputlogin}
           placeholder="Digite seu Telefone"
           autoCorrect={false}
-          onChangeText={() => { }}>
+          value={myFone}
+          onChangeText={Fone => {
+            setMyFone(Fone);
+          }}            
+          
+          >   
         </TextInput>
         <TextInput
           style={styles.inputlogin}
           placeholder="email"
           autoCorrect={false}
-          onChangeText={() => { }}>
+          value={myEmail}
+          onChangeText={Email => {
+            setMyEmail(Email);
+          }}            
+          
+          >   
         </TextInput>
         <TextInput
           style={styles.inputlogin}
           secureTextEntry={true}
           placeholder="Sua cidade"
           autoCorrect={false}
-          onChangeText={() => { }}>
+          value={myCity}
+          onChangeText={City => {
+            setMyCity(City);
+          }}            
+          
+          >   
         </TextInput>
         <TextInput
           style={styles.inputlogin}
           secureTextEntry={true}
           placeholder="Digite sua senha"
           autoCorrect={false}
-          onChangeText={() => { }}>
+          value={myPassword}
+          onChangeText={Password => {
+            setMyPassword(Password);
+          }}            
+          
+          >   
         </TextInput>
         <TouchableOpacity
             style={styles.btnSubmit}

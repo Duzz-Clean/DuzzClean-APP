@@ -19,6 +19,13 @@ import {
 } from 'react-native';
 import styles from '../styles/index';
 export default function Home({ navigation }) {
+  
+  const [myName, setMyName] = useState('');
+  const [myFone, setMyFone] = useState('');
+  const [myEmail, setMyEmail] = useState('');
+  const [myPlaca, setMyPlaca] = useState('');
+  const [myCity, setMyCity] = useState('');
+  const [myPassword, setMyPassword] = useState('');
   return (
     
     <KeyboardAvoidingView style={styles.backgroundcad}>
@@ -33,33 +40,66 @@ export default function Home({ navigation }) {
           style={styles.inputlogin}
           placeholder="Digite seu Nome"
           autoCorrect={false}
-          onChangeText={() => { }}>
+           value={myName}
+          onChangeText={Name => {
+            setMyName(Name);
+          }}            
+          
+          >   
         </TextInput>
         <TextInput
           style={styles.inputlogin}
           placeholder="Informe seu Telefone"
           autoCorrect={false}
-          onChangeText={() => { }}>
+           value={myFone}
+          onChangeText={Fone => {
+            setMyFone(Fone);
+          }}                      
+          >   
         </TextInput>
+        <TextInput
+          style={styles.inputlogin}
+          placeholder="informe seu email"
+          autoCorrect={false}
+           value={myEmail}
+          onChangeText={Email => {
+            setMyEmail(Email);
+          }}            
+          
+          ></TextInput>
         <TextInput
           style={styles.inputlogin}
           placeholder="informe a placa do seu carro"
           autoCorrect={false}
-          onChangeText={() => { }}>
+           value={myPlaca}
+          onChangeText={Placa => {
+            setMyPlaca(Placa);
+          }}            
+          
+          >   
         </TextInput>
         <TextInput
           style={styles.inputlogin}
           secureTextEntry={true}
           placeholder="Escolha sua senha"
           autoCorrect={false}
-          onChangeText={() => { }}>
+           value={myPassword}
+          onChangeText={Password => {
+            setMyPassword(Password);
+          }}            
+          
+          >   
         </TextInput>
         <TextInput
           style={styles.inputlogin}
           secureTextEntry={true}
           placeholder="Sua cidade"
           autoCorrect={false}
-          onChangeText={() => { }}>
+           value={myCity}
+          onChangeCity={City => {
+            setMyCity(City);
+          }}                      
+          >   
         </TextInput>
         <TouchableOpacity
             style={styles.btnSubmit}
