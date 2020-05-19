@@ -108,7 +108,8 @@ export default function duzzclean({ navigation }) {
           autoCorrect={false}
           value={myEmail}
           onChangeText={email => {
-            setMyEmail(email);
+            
+            setMyEmail(email);            
           }}
           >
         </TextInput>        
