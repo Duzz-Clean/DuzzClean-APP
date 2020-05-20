@@ -20,12 +20,18 @@ import {
 import styles from '../styles/index';
 export default function CadastroCli({ navigation }) {
 
-  
-  const [myName, setMyName] = useState('');
-  const [myFone, setMyFone] = useState('');
-  const [myEmail, setMyEmail] = useState('');
-  const [myCity, setMyCity] = useState('');
-  const [myPassword, setMyPassword] = useState('');
+  const data = [
+    { 'name': 'lindomar' },
+    { 'fone': '1234-1234' },
+    { 'Email': 'lindomar@gmail.com' },
+    { 'City': 'Uberlandia' },
+    { 'Password': '123456' },
+  ];
+  const [myName, setMyName] = useState('lindomar');
+  const [myFone, setMyFone] = useState('1234-1234');
+  const [myEmail, setMyEmail] = useState('lindomar@gmail.com');
+  const [myCity, setMyCity] = useState('Uberlandia');
+  const [myPassword, setMyPassword] = useState('123456');
   
 
   return (
@@ -95,8 +101,7 @@ export default function CadastroCli({ navigation }) {
           value={myPassword}
           onChangeText={Password => {
             setMyPassword(Password);
-          }}            
-          
+          }}                     
           >   
         </TextInput>
         <TouchableOpacity
@@ -111,5 +116,3 @@ export default function CadastroCli({ navigation }) {
       </KeyboardAvoidingView>    
   );
 }
-
- 

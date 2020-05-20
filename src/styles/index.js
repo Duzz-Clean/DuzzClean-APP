@@ -1,10 +1,7 @@
 /** 
  @__author__ DiegoEmanuel/diegoabox@gmail.com/
 */
-
-
 import { StyleSheet } from 'react-native';
-
 const styles = StyleSheet.create({
   backgroundcad: {
     backgroundColor: '#E0FFFF',
@@ -42,7 +39,7 @@ const styles = StyleSheet.create({
     padding: 15
   },
   inputlogin: {
-    backgroundColor: '#FFF',
+    backgroundColor: '#fff',
     width: '100%',
     marginBottom: 4,
     fontSize: 15,

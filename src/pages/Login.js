@@ -16,17 +16,27 @@ import {
   Keyboard,
   Alert
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import styles from '../styles/index';
-export default function duzzclean({ navigation }) {
+export default function login() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
   const [logo] = useState(new Animated.ValueXY({ x: 280, y: 179 }));
-
   const [myEmail, setMyEmail] = useState('');
   const [myPassword, setMyPassword] = useState('');
+  const navigation = useNavigation();
 
 
+  function navigateToMotorista() {
+    navigation.navigate('Motorista');
+  }
+  function navigateToCadastroCli() {
+    navigation.navigate('CadastroCli');
+  }
+  function navigateToCadastroMoto() {
+    navigation.navigate('CadastroMoto');
+  }
   useEffect(() => {
     keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow);
     keyboardDidShowListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide);
@@ -101,18 +111,16 @@ export default function duzzclean({ navigation }) {
             ]
           }
         ]}>
-        
+
         <TextInput
           style={styles.inputlogin}
           placeholder="Digite seu email"
           autoCorrect={false}
           value={myEmail}
           onChangeText={email => {
-            
-            setMyEmail(email);            
-          }}
-          >
-        </TextInput>        
+            setMyEmail(email);
+          }}>
+        </TextInput>
         <TextInput
           style={styles.inputlogin}
           secureTextEntry={true}
@@ -121,25 +129,18 @@ export default function duzzclean({ navigation }) {
           value={myPassword}
           onChangeText={password => {
             setMyPassword(password);
-          }}            
-          
-          >
+          }}
+
+        >
         </TextInput>
         <TouchableOpacity
           style={styles.btnSubmit}
-          onPress={() =>
-            navigation.navigate('Cliente')}>
+          onPress={navigateToMotorista}>
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btnRegister}
-          onPress={() =>
-            navigation.navigate('CadastroMoto')}>
-          <Text style={styles.registerText}>Criar Conta motorista</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnRegister}
-          onPress={() =>
-            navigation.navigate('CadastroCli')}>
-          <Text style={styles.registerText}>Criar Conta cliente</Text>
+          onPress={navigateToCadastroMoto}>
+          <Text style={styles.registerText}>Criar Conta</Text>
         </TouchableOpacity>
       </Animated.View>
     </KeyboardAvoidingView>
