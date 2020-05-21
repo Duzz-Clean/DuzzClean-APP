@@ -1,11 +1,9 @@
-/** 
- @__author__ DiegoEmanuel/diegoabox@gmail.com/
-*/
 
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import {
   StyleSheet,
+  SafeAreaView,
+  AsyncStorage,
   Text,
   View,
   KeyboardAvoidingView,
@@ -17,22 +15,31 @@ import {
   Keyboard,
   Alert
 } from 'react-native';
-import styles from '../styles/index';
-export default function CadastroCli({ navigation }) {
 
-  const data = [
-    { 'name': 'lindomar' },
-    { 'fone': '1234-1234' },
-    { 'Email': 'lindomar@gmail.com' },
-    { 'City': 'Uberlandia' },
-    { 'Password': '123456' },
-  ];
-  const [myName, setMyName] = useState('lindomar');
-  const [myFone, setMyFone] = useState('1234-1234');
-  const [myEmail, setMyEmail] = useState('lindomar@gmail.com');
-  const [myCity, setMyCity] = useState('Uberlandia');
-  const [myPassword, setMyPassword] = useState('123456');
-  
+//import api from './services/api';
+
+import styles from '../styles/index';
+
+export default function CadastroCli({navigation}){
+  const [Username, setUsername] = useState('');
+  const [Password, setPassword] = useState('');
+  const [FirstName, setFirstName] = useState('');
+  const [SecondName, setSecondName] = useState('');
+  const [UserType, setUserType] = useState('');
+
+  async function handleSubmit(Username, Password, FirstName, SecondName, UserType){
+    const response = await api.post('/novo_usuario',{
+      "Username": Username,
+      "Password": Password,
+      "FirstName": FirstName,
+      "SecondName": SecondName,
+      "UserType": UserType
+    })
+    console.log(response)
+    Alert.alert('Usuário cadastrado com sucesso!');
+    navigation.navigate('Login');
+
+  }
 
   return (
     
@@ -41,7 +48,7 @@ export default function CadastroCli({ navigation }) {
     <View>
       <Image source={require('../components/assets/cadastro.png')}
         style={styles.imgcad} />
-<TouchableOpacity >
+<TouchableOpacity>
       
         <Text style={styles.textcad}>Cadastro Cliente</Text>
         
@@ -51,68 +58,68 @@ export default function CadastroCli({ navigation }) {
         <TextInput
           style={styles.inputlogin}
           placeholder="Digite seu Nome"
-          value={myName}
-          autoCorrect={false}          
-          onChangeText={Name => {
-            setMyName(Name);
-          }}
-          >    
+          autoCorrect={false}   
+          value = {Username}       
+          onChangeText = {setUsername}
+        />    
 
-        </TextInput>
+
         <TextInput
           style={styles.inputlogin}
-          placeholder="Digite seu Telefone"
+          placeholder="password"
           autoCorrect={false}
-          value={myFone}
-          onChangeText={Fone => {
-            setMyFone(Fone);
-          }}            
+          value={Password}
+          onChangeText = {setPassword}          
+        />   
+
+        <TextInput
+          style={styles.inputlogin}
+          placeholder="FirstName"
+          autoCorrect={false}
+          value={FirstName}
+          onChangeText = {setFirstName}          
           
-          >   
-        </TextInput>
-        <TextInput
-          style={styles.inputlogin}
-          placeholder="email"
-          autoCorrect={false}
-          value={myEmail}
-          onChangeText={Email => {
-            setMyEmail(Email);
-          }}            
           
-          >   
-        </TextInput>
+        />   
+
         <TextInput
           style={styles.inputlogin}
-          secureTextEntry={true}
-          placeholder="Sua cidade"
+          placeholder="SecondName"
           autoCorrect={false}
-          value={myCity}
-          onChangeText={City => {
-            setMyCity(City);
-          }}            
-          
-          >   
-        </TextInput>
+          value={SecondName}
+          onChangeText = {setSecondName}               
+        />   
+
+
         <TextInput
           style={styles.inputlogin}
-          secureTextEntry={true}
-          placeholder="Digite sua senha"
+          placeholder="UserType"
           autoCorrect={false}
-          value={myPassword}
-          onChangeText={Password => {
-            setMyPassword(Password);
-          }}                     
-          >   
-        </TextInput>
-        <TouchableOpacity
-            style={styles.btnSubmit}
-            onPress={() =>
-              navigation.navigate('Login')}>
-            <Text style={styles.buttonText}>Registrar-se</Text>
-          </TouchableOpacity>
-      </TouchableOpacity>
-    
+          value={UserType}
+          onChangeText = {setUserType}               
+        />  
+
+
+
+        <TouchableOpacity onPress={handleSubmit} style={styles.btnSubmit}>
+          <Text style={styles.buttonText}>Registrar-se</Text>
+        </TouchableOpacity>
+
+</TouchableOpacity>
       </View>
       </KeyboardAvoidingView>    
   );
+
 }
+
+
+
+
+
+
+
+
+
+
+
+

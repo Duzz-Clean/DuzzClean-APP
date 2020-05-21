@@ -1,4 +1,4 @@
-import React, { useState } from 'rea  ct';
+import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 const Login = () => {
