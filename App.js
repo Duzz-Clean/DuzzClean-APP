@@ -19,14 +19,14 @@ import ultimaslimpezas from './src/pages/ultimaslimpezas';
 export default function App() {
   return (
     <NavigationContainer>
-      <AppStack.Navigator>
-        <AppStack.Screen name="Home" component={Home} />
+      <AppStack.Navigator>        
         <AppStack.Screen name="Login" component={Login} />
         <AppStack.Screen name="Motorista" component={Motorista} />
         <AppStack.Screen name="Cliente" component={Cliente} />
         <AppStack.Screen name="CadastroMoto" component={CadastroMoto} />
         <AppStack.Screen name="CadastroCli" component={CadastroCli} />
         <AppStack.Screen name="ultimaslimpezas" component={ultimaslimpezas} />
+        <AppStack.Screen name="Home" component={Home} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

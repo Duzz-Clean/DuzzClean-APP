@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#E0FFFF'
+    backgroundColor: '#E0FFFF',
+    
   },
   backgroundhome: {
     flex: 1,
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '90%',
-    paddingBottom: 50
+    paddingBottom: 30
   },
   input: {
     backgroundColor: '#E0FFFF',
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     fontSize: 15,
     padding: 7,
+    marginBottom:5
   },
   btnSubmit: {
     backgroundColor: '#00CED1',
@@ -52,6 +54,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
+    marginTop: 10,
+
   },
   submitText: {
     color: '#FFF',
@@ -75,6 +79,14 @@ const styles = StyleSheet.create({
     marginBottom: 20,
 
   },
+  imglogin: {            
+    width: 250,
+    height: 160,
+    marginTop: 0,
+    alignItems: 'center',    
+    justifyContent: 'center',
+    marginBottom:50
+  },
   buttonhome: {
     width: 150,
     height: 45,
@@ -91,7 +103,20 @@ const styles = StyleSheet.create({
   textcad: {
     fontFamily: 'Times',
     fontSize: 22,
-
+    color: '#000',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft:57,
+    marginBottom:20,
+  },
+  textcadastro: {
+    fontFamily: 'Times',
+    fontSize: 15,
+    color: '#000',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft:68,
+    marginBottom:20,
   }
 });
 export default styles;

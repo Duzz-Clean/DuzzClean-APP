@@ -2,151 +2,85 @@
  @__author__ DiegoEmanuel/diegoabox@gmail.com/
 */
 
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   KeyboardAvoidingView,
   TextInput,
-  Button,
   TouchableOpacity,
-  Image,
-  Animated,
-  Keyboard,
-  Alert
+  Image,Alert
 } from 'react-native';
-import axios from 'axios';
 import styles from '../styles/index';
-export default function duzzclean({ navigation }) {
-
-  const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
-  const [opacity] = useState(new Animated.Value(0));
-  const [logo] = useState(new Animated.ValueXY({ x: 280, y: 179 }));
+import axios from 'axios';
+export default function login({ navigation }) {
 
 
-  //Variaveis que ta pegando na tela cham myEmail e myPassword
   const [myEmail, setMyEmail] = useState('');
   const [myPassword, setMyPassword] = useState('');
-
-
-  useEffect(() => {
-
-
-    async function logar(){
-      const response = await axios.get('https://reqres.in/api/users?page=2')
-      console.log(response)
-    }
-    keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow);
-    keyboardDidShowListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide);
-    
-   
-
-    Animated.parallel([
-      Animated.spring(offset.y, {
-        toValue: 0,
-        speed: 3,
-        bounciness: 20,
-        useNativeDriver: false
-      }),      
-      Animated.timing(opacity, {
-        toValue: 1,
-        duration: 300,
-        useNativeDriver: false
-      })
-    ]).start();
-  }, []);
-  function keyboardDidShow() {
-    Animated.parallel([
-      Animated.timing(logo.x, {
-        toValue: 120,
-        duration: 100,
-        useNativeDriver: false
-      }),
-      Animated.timing(logo.y, {
-        toValue: 106,
-        duration: 100,
-        useNativeDriver: false
-      })
-
-    ]).start();
-  }
-  function keyboardDidHide() {
-    Animated.parallel([
-      Animated.timing(logo.x, {
-        toValue: 227,
-        duration: 100,
-        useNativeDriver: false
-      }),
-      Animated.timing(logo.y, {
-        toValue: 146,
-        duration: 100,
-        useNativeDriver: false
-      })
-    ]).start();
-  }
+  
+  async function logar(){
+    console.log(myEmail , myPassword)
+      try{       
+        console.log('TO AQUI Ó BUCETA') 
+        const response = await axios.post('http://192.168.0.103/autenticar_usuario', {
+          Username: myEmail,
+          Password: myPassword
+          
+        })
+         console.log('Fiz a request, carai')
+        console.log(response.data)
+        const status = response.data.status
+        if (status < 400){
+          navigation.navigate('Motorista')
+        }else{
+          Alert.alert("alert", response.data.message.error)
+         }
+      }
+      catch (err) {
+        console.log(err)
+      }        
+      }
+      
+ 
   return (
+
     <KeyboardAvoidingView style={styles.background}>
 
-      <View style={styles.containerLogo}>
+      <View>
+        <Image source={require('../components/assets/logo.png')}
+          style={styles.imglogin} />
+        <TouchableOpacity >
 
-        <Animated.Image
-          style={{
-            width: logo.x,
-            height: logo.y,
-          }}
-          source={require('../components/assets/logo.png')} />
+          <Text style={styles.textcad}>Faça seu login</Text>
+          <TextInput
+            style={styles.inputlogin}
+            placeholder="Digite seu email"
+            autoCorrect={false}
+            value={myEmail}
+            onChangeText={email => {
+              setMyEmail(email);
+            }}>
+          </TextInput>
+          <TextInput
+            style={styles.inputlogin}
+            placeholder="Digite sua Senha"
+            autoCorrect={false}
+            value={myPassword}
+            onChangeText={password => {
+              setMyPassword(password);
+            }}></TextInput>                    
+          <TouchableOpacity
+            style={styles.btnSubmit}
+            onPress={() =>logar()}>
+            <Text style={styles.buttonText}>Entrar</Text>
+          </TouchableOpacity>
+        </TouchableOpacity>       
+        <Text style={styles.textcadastro} onPress={() =>
+              navigation.navigate('CadastroMoto')}>Ou cadastre-se</Text>
       </View>
-      <Animated.View
-        style={[
-          styles.container,
-          {
-            opacity: opacity,
-            transform: [
-              { translateY: offset.y }
-            ]
-          }
-        ]}>
-        
-        <TextInput
-          style={styles.inputlogin}
-          placeholder="Digite seu email"
-          autoCorrect={false}
-          value={myEmail}
-          onChangeText={email => {
-            
-            setMyEmail(email);            
-          }}
-          >
-        </TextInput>        
-        <TextInput
-          style={styles.inputlogin}
-          secureTextEntry={true}
-          placeholder="Digite sua senha"
-          autoCorrect={false}
-          value={myPassword}
-          onChangeText={password => {
-            setMyPassword(password);
-          }}            
-          
-          >
-        </TextInput>
-        <TouchableOpacity
-          style={styles.btnSubmit}
-          onPress={() =>logar()}>
-          <Text style={styles.buttonText}>Entrar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnRegister}
-          onPress={() =>
-            navigation.navigate('CadastroMoto')}>
-          <Text style={styles.registerText}>Criar Conta motorista</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btnRegister}
-          onPress={() =>
-            navigation.navigate('CadastroCli')}>
-          <Text style={styles.registerText}>Criar Conta cliente</Text>
-        </TouchableOpacity>
-      </Animated.View>
-    </KeyboardAvoidingView>
+      
+    </KeyboardAvoidingView >
+
   );
 }
