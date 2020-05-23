@@ -14,7 +14,7 @@ import Cliente from './src/pages/Cliente'
 import CadastroMoto from './src/pages/CadastroMoto';
 import CadastroCli from './src/pages/CadastroCli';
 import ultimaslimpezas from './src/pages/ultimaslimpezas';
-
+import defineCad from './src/pages/defineCad';
 
 export default function App() {
   return (
@@ -23,6 +23,7 @@ export default function App() {
         <AppStack.Screen name="Login" component={Login} />
         <AppStack.Screen name="Motorista" component={Motorista} />
         <AppStack.Screen name="Cliente" component={Cliente} />
+        <AppStack.Screen name="defineCad" component={defineCad} />
         <AppStack.Screen name="CadastroMoto" component={CadastroMoto} />
         <AppStack.Screen name="CadastroCli" component={CadastroCli} />
         <AppStack.Screen name="ultimaslimpezas" component={ultimaslimpezas} />

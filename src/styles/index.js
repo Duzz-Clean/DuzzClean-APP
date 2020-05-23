@@ -3,17 +3,17 @@
 */
 import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
-  backgroundcad: {
-    backgroundColor: '#E0FFFF',
-    flex: 1,
-    justifyContent:'space-around'
-  },
   background: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#E0FFFF',
-    
+    backgroundColor: '#E0FFFF',      
+  },
+  backgroundcad: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#000',
   },
   backgroundhome: {
     flex: 1,
@@ -41,15 +41,16 @@ const styles = StyleSheet.create({
   },
   inputlogin: {
     backgroundColor: '#fff',
-    width: '100%',
+    width: 295,
     marginBottom: 4,
     fontSize: 15,
     padding: 7,
-    marginBottom:5
+    marginBottom:5,
+    borderRadius: 7,
   },
   btnSubmit: {
     backgroundColor: '#00CED1',
-    width: '100%',
+    width: 300,
     height: 45,
     alignItems: 'center',
     justifyContent: 'center',
@@ -87,6 +88,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom:50
   },
+  imgdlogin: {            
+    width: 200,
+    height: 140,
+    marginTop: 10,
+    alignItems: 'center',    
+    justifyContent: 'center',
+    
+  },
   buttonhome: {
     width: 150,
     height: 45,
@@ -99,6 +108,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#000',
     alignItems: 'center',
+    
   },
   textcad: {
     fontFamily: 'Times',
@@ -115,7 +125,7 @@ const styles = StyleSheet.create({
     color: '#000',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft:68,
+    borderRadius: 5,
     marginBottom:20,
   }
 });
