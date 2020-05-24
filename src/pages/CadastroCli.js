@@ -28,8 +28,7 @@ export default function Cadastro({ navigation }) {
     console.log(myEmail, myPassword, myPassword, myfName, mysName, myuserType)
     try {
       console.log('TO AQUI Ó BUCETA')
-      const response = await axios.post('http://192.168.0.103/novo_usuario ', {
-      // const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
+      const response = await axios.post('http://192.168.0.103/novo_usuario ', {      
         Username: myEmail,
         Password: myPassword,
         FirstName: myfName,
