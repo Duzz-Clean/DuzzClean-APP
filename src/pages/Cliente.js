@@ -26,7 +26,6 @@ export default function login({ navigation }) {
   
   //       setRepositories(response.data);
   //     }
-      
   //     loadRepositories();
   //   }, []);
 

@@ -6,7 +6,6 @@ import React, { useState } from 'react';
 import {
   Text,
   View,
-  
   TextInput,
   TouchableOpacity,
   Image, Alert
@@ -30,19 +29,18 @@ export default function Cadastro({ navigation }) {
     try {
       console.log('TO AQUI Ó BUCETA')
       const response = await axios.post('http://192.168.0.103/novo_usuario ', {
+      // const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
         Username: myEmail,
         Password: myPassword,
         FirstName: myfName,
         SecondName: mysName,
         UserType: myuserType,
       })
-
-      //http://192.168.0.107/novo_usuario
       console.log('Fiz a request, carai')
       console.log(response.data)
       const status = response.data.status
       if (status < 400) {
-        Alert.alert("alert", "Logado")
+        Alert.alert("Parabéns cadastro aceito", String([response.data.Username]))
         navigation.navigate(Login)
       } else {
         Alert.alert("alert", response.data.message.error)
@@ -57,9 +55,10 @@ export default function Cadastro({ navigation }) {
       <View style={styles.background}>
         <Image source={require('../components/assets/cadastro.png')}
           style={styles.imgcad} />
+          <Text style={styles.textcad}>Cadastro de usuarios</Text>
         <TouchableOpacity >
 
-          <Text style={styles.textcad}>Cadastro de usuarios</Text>
+          
           <TextInput
             style={styles.inputlogin}
             placeholder="Digite seu email (Ex- usuario@gmail.com)"
