@@ -31,7 +31,12 @@ export default function login({ navigation }) {
       console.log(response.data)
       const status = response.data.status
       if (status < 400) {
-        navigation.navigate('Motorista')
+        if (status == 1) {
+          navigation.navigate('Cliente')
+        }
+        if (status == 2) {
+          navigation.navigate('Motorista')
+        }
       } else {
         Alert.alert("alert", response.data.message.error)
       }
@@ -40,6 +45,7 @@ export default function login({ navigation }) {
       console.log(response)
     }
   }
+  'https://jsonplaceholder.typicode.com/posts'
   return (
     <View style={styles.background}>
       <Image source={require('../components/assets/logo.png')}
