@@ -2,9 +2,9 @@
  @__author__ DiegoEmanuel/diegoabox@gmail.com/
 */
 import 'react-native-gesture-handler';
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 
 const AppStack = createStackNavigator();
 import Home from './src/pages/Home';
@@ -15,6 +15,7 @@ import CadastroMoto from './src/pages/CadastroMoto';
 import CadastroCli from './src/pages/CadastroCli';
 import ultimaslimpezas from './src/pages/ultimaslimpezas';
 import defineCad from './src/pages/defineCad';
+import Qrcode from './src/pages/Qrcode';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <AppStack.Screen name="CadastroCli" component={CadastroCli} />
         <AppStack.Screen name="ultimaslimpezas" component={ultimaslimpezas} />
         <AppStack.Screen name="Home" component={Home} />
+        <AppStack.Screen name="Qrcode" component={Qrcode} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

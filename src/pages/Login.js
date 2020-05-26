@@ -6,7 +6,6 @@ import React, { useState } from 'react';
 import {
   Text,
   View,
-  KeyboardAvoidingView,
   TextInput,
   TouchableOpacity,
   Image, Alert

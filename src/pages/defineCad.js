@@ -41,7 +41,7 @@ export default function defineCad({ navigation }) {
 
           <TouchableOpacity
             style={styles.btnSubmit}
-            onPress={() =>navigation.navigate('CadastroCli')}>
+            onPress={() =>navigation.navigate('CadastroCli')}>            
             <Text style={styles.buttonText}>ir para o cadastro passageiro</Text>
           </TouchableOpacity>
         </TouchableOpacity>

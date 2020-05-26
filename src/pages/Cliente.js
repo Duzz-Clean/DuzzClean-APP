@@ -57,14 +57,14 @@ export default function login({ navigation }) {
 
       <TouchableOpacity
         style={styles.btnSubmit}
-        onPress={() => Alert.alert("Verificar Limpeza!", "Verificando rating e ultimas 3 limpezas")}>
+        onPress={() =>navigation.navigate('ultimaslimpezas')}>
         <Text style={styles.buttonText}>Verificar Limpeza</Text>
       </TouchableOpacity>
 
 
       <TouchableOpacity
         style={styles.btnSubmit}
-        onPress={() => Alert.alert("Avaliar com QR Code!", "Apresentando o seu feedbeck")}>
+        onPress={() =>navigation.navigate('Qrcode')}>
         <Text style={styles.buttonText}>Avaliar com QR Code</Text>
       </TouchableOpacity>
       <TextInput

@@ -1,3 +1,4 @@
+  
 /** 
  @__author__ DiegoEmanuel/diegoabox@gmail.com/
 */
@@ -39,5 +40,3 @@ export default function Home({ navigation }) {
     
   );
 }
-
- 
