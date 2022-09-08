@@ -1,127 +1,86 @@
-import React,{useEffect,useState} from 'react';
-import { StyleSheet,
+/** 
+ @__author__ DiegoEmanuel/diegoabox@gmail.com/
+*/
+
+import React, { useState } from 'react';
+import {
   Text,
   View,
-  KeyboardAvoidingView,
   TextInput,
-  Button,
   TouchableOpacity,
-  Image,
-  Animated, 
-  Keyboard,
-  Alert
+  Image, Alert
 } from 'react-native';
 import styles from '../styles/index';
-
-export default function duzzclean({navigation}) {
-  
-  
-  clicou = ()=>{
-    Alert.alert("Sucesso","Voce está conectado!")
-  }
-
-  const[offset]=useState(new Animated.ValueXY({x: 0,y:95}))
-  const[opacity]=useState(new Animated.Value(0))
-  const[logo]= useState(new Animated.ValueXY({x:280 , y:179}));
+import axios from 'axios';
+export default function login({ navigation }) {
 
 
-  useEffect(()=>{
-    keyboardDidShowListener = Keyboard.addListener('keyboardDidShow',keyboardDidShow);
-    keyboardDidShowListener = Keyboard.addListener('keyboardDidHide',keyboardDidHide);
+  const [myEmail, setMyEmail] = useState('');
+  const [myPassword, setMyPassword] = useState('');
 
-    Animated.parallel([
-    Animated.spring(offset.y,{
-      toValue:0,
-      speed: 3,
-      bounciness:20,
-      useNativeDriver: false 
-
-        }),
-    Animated.timing(opacity,{
-      toValue:1,
-      duration:300,
-      useNativeDriver: false 
-
-    })
-
-  ]).start();
-  },[]);
-  function keyboardDidShow(){
-     
-
-    Animated.parallel([
-      Animated.timing(logo.x,{
-        toValue:125,
-        duration:100,
-        useNativeDriver: false 
-      }),
-  Animated.timing(logo.y,{
-        toValue:80,
-        duration:100,
-        useNativeDriver: false 
+  async function logar() {
+    console.log(myEmail, myPassword)
+    try {
+      console.log('TO AQUI Ó BUCETA')
+      const response = await axios.post('http://192.168.0.104/autenticar_usuario', {
+        Username: myEmail,
+        Password: myPassword
       })
-      
-    ]).start();
+      console.log('Fiz a request, carai')
+      console.log(response.data)
+      const status = response.data.status
+      if (status < 400) {
+        if (status == 1) {
+          navigation.navigate('Cliente')
+        }
+        if (status == 2) {
+          navigation.navigate('Motorista')
+        }
+      } else {
+        Alert.alert("alert", response.data.message.error)
+      }
+    }
+    catch (response) {
+      console.log(response)
+    }
   }
-  function keyboardDidHide(){
-    Animated.parallel([
-      Animated.timing(logo.x,{
-        toValue:227, 
-        duration:100,
-        useNativeDriver: false 
-      }),
-  Animated.timing(logo.y,{
-        toValue:146,
-        duration:100,
-        useNativeDriver: false         
-      })
-    ]).start();
-  }
+  'https://jsonplaceholder.typicode.com/posts'
   return (
-    <KeyboardAvoidingView style={styles.background}>
+    <View style={styles.background}>
+      <Image source={require('../components/assets/logo.png')}
+        style={styles.imglogin} />
+      <TouchableOpacity>
+        <Text style={styles.textcad}>Faça seu login</Text>
+        <TextInput
+          style={styles.inputlogin}
+          placeholder="Digite seu email"
+          autoCorrect={false}
+          value={myEmail}
+          onChangeText={email => {
+            setMyEmail(email);
+          }}>
+        </TextInput>
+        <TextInput
+          style={styles.inputlogin}
+          placeholder="Digite sua Senha"
+          secureTextEntry={true}
+          autoCorrect={false}
+          value={myPassword}
+          onChangeText={password => {
+            setMyPassword(password);
+          }}></TextInput>
+        <TouchableOpacity
+          style={styles.btnSubmit}
+          onPress={() =>
+            navigation.navigate('Cliente')}>
+          <Text style={styles.buttonText}>Entrar</Text>
+        </TouchableOpacity>
+      </TouchableOpacity>
+      <Text style={styles.textcadastro} onPress={() =>
+        navigation.navigate('defineCad')}>Ou cadastre-se</Text>
 
-               <View style={styles.containerLogo}>
-                <Animated.Image 
-                style={{
-                  width:logo.x,
-                  height:logo.y,
-                }}
-                source={require('../components/assets/logo.png')}/>
-              </View> 
-                <Animated.View 
-                style={[
-                  styles.container,
-                  {
-                    opacity:opacity,
-                    transform: [
-                      {translateY:offset.y}
-                    ]
-                  }
-                ]}>
-                      <TextInput 
-                      style={styles.input}
-                      placeholder="Digite seu email"
-                      autoCorrect={false}
-                      onChangeText={()=>{}}>
-                      </TextInput>
+    </View>
 
-                      <TextInput 
-                      style={styles.input}           
-                      secureTextEntry={true}           
-                      placeholder="Digite sua senha" 
-                      autoCorrect={false} 
-                      onChangeText={()=>{}}>
-                      </TextInput>
-                      <Button 
-                      title="Entrar"
-                      onPress={() => navigation.push('Motorista')}
-                    />
-                    
 
-                    <TouchableOpacity style={styles.btnRegister}>
-                      <Text style={styles.registerText}>Criar Conta gratuita</Text>
-                    </TouchableOpacity>
-                  </Animated.View>
-        </KeyboardAvoidingView>
-    );
+  );
 }
