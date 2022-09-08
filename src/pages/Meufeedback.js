@@ -1,3 +1,7 @@
+/** 
+ @__author__ DiegoEmanuel/diegoabox@gmail.com/
+*/
+
 import React,{useEffect,useState} from 'react';
 import { StyleSheet,
   Text,
@@ -15,10 +19,7 @@ import styles from '../styles/index';
 
 export default function duzzclean({navigation}) {
   
-  
-  clicou = ()=>{
-    Alert.alert("Sucesso","Voce está conectado!")
-  }
+
 
   const[offset]=useState(new Animated.ValueXY({x: 0,y:95}))
   const[opacity]=useState(new Animated.Value(0))
